@@ -20,12 +20,10 @@ function repeater(str, options) {
   // throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
   let addSep = '|';
-  if (!!options.additionSeparator){
+  if ('additionSeparator' in options){
      addSep = String(options.additionSeparator);
-  }else if(options.additionSeparator == false){
-     addSep = 'false';
-  }
-  let tailArr = new Array(!!options.additionRepeatTimes ? Number(options.additionRepeatTimes) : 1 ).fill(!!options.addition ? String(options.addition): '');
+  };
+  let tailArr = new Array(!!options.additionRepeatTimes ? Number(options.additionRepeatTimes) : 1 ).fill(('addition' in options) ? String(options.addition): '');
   let tail = tailArr.join(`${addSep}`);
   let newStr = new Array(!!options.repeatTimes ? Number(options.repeatTimes) : 1).fill(String(str) + tail) ;
 
